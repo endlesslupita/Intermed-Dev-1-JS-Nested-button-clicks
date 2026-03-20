@@ -1,5 +1,67 @@
 # Intermed-Dev-1-JS-Nested-button-clicks
 
+## About This Project
+
+This React app demonstrates **event propagation (bubbling)** using a portfolio-style project card. The card simulates a real-world scenario where an outer container and an inner button each have independent click behaviors. `event.stopPropagation()` is used to prevent the inner button's click from bubbling up to the outer card.
+
+Built with React and Vite.
+
+## How to Run
+
+```bash
+cd event-propagation-assignment
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## How to Run Tests
+
+```bash
+cd event-propagation-assignment
+npm test
+```
+
+7 tests total — 4 normal cases, 3 edge cases.
+
+## Video Demo Reference
+
+### What to show
+- The running app in the browser
+- Clicking the outer card → alert appears: "case description clicked"
+- Clicking the inner button → alert appears: "button clicked" (outer is NOT triggered)
+- The test output showing all 7 passing
+
+### What to say
+
+**Project overview**
+- Built a React component with nested clickable elements to demonstrate event bubbling
+- Used `event.stopPropagation()` to isolate the inner button's click from its parent
+
+**Event propagation concept**
+- When you click an element, the event travels up through the DOM — this is called bubbling
+- Without stopPropagation, clicking the inner button would also fire the outer card's handler
+- Real-world example: a portfolio card that navigates to a case study, with a separate "Live Demo" button inside it
+
+**Component structure**
+- Outer container is a `<div>` with `role="button"` — used instead of `<button>` because HTML doesn't allow interactive elements nested inside a `<button>`
+- `tabIndex={0}` makes the outer card keyboard accessible
+- Inner `<button>` calls `e.stopPropagation()` before its own handler fires
+
+**Normal test cases**
+- Component renders with the correct button label
+- Clicking the outer card triggers the outer alert
+- Clicking the inner button triggers the inner alert
+- Clicking the inner button fires alert exactly once — not twice
+
+**Edge test cases**
+- Rapid clicks on the inner button never trigger the outer handler
+- Inner button is keyboard focusable (can receive focus programmatically)
+- Outer card has `tabIndex="0"` confirming keyboard accessibility
+
+---
+
 **Assignment: Nested Button Clicks**
 
 ## Overview
