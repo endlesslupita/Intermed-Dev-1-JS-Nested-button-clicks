@@ -1,14 +1,13 @@
-
-function App() {
+function NestedButtons(props) {
         const handleCaseClick = () => {
                 console.log("case description clicked");
         }
-        const handleInnerClick = () => {
+        const handleInnerClick = (e) => {
                 e.stopPropagation();
                 console.log("button clicked");
         }
 
-}
+
 return (
 <div role="button" tabIndex={0} onClick={ handleCaseClick }>
 <h2>React Portfolio Project</h2>
@@ -19,3 +18,5 @@ return (
 
 </div>
 )
+}
+export default NestedButtons
