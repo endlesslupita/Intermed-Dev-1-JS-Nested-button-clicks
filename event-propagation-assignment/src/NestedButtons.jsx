@@ -1,10 +1,10 @@
 function NestedButtons(props) {
         const handleCaseClick = () => {
-                console.log("case description clicked");
+                alert("case description clicked");
         }
         const handleInnerClick = (e) => {
                 e.stopPropagation();
-                console.log("button clicked");
+                alert("button clicked");
         }
 
 
